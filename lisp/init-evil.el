@@ -764,7 +764,39 @@ If N > 0 and working on javascript, only occurrences in current N lines are rena
   "us" 'gud-step
   "ui" 'gud-stepi
   "uc" 'gud-cont
-  "uf" 'gud-finish)
+  "uf" 'gud-finish
+
+  "bb" 'ivy-switch-buffer
+  "bl" 'list-buffers
+  "bp" 'previous-buffer
+  "bn" 'next-buffer
+  "bk" 'kill-buffer
+  "TAB" 'alternate-buffer
+
+  ;```````````````````````````` Windows
+  "0" 'winum-select-window-0
+  "1" 'winum-select-window-1
+  "2" 'winum-select-window-2
+  "3" 'winum-select-window-3
+  "4" 'winum-select-window-4
+  "w/" 'split-window-right
+  "ws" 'split-window-below
+  "wd" 'delete-window
+  "wm" 'delete-other-windows
+
+  "sp" 'counsel-git-grep
+
+  "SPC" 'counsel-M-x
+
+  "fed" 'open-emacs-dotfile
+  ;; "ff" 'helm-find-files
+  "fj" 'dired-jump
+  "fs" 'save-buffer
+  "fo" 'xah-open-in-external-app
+  ; "pd" 'helm-projectile-find-dir
+  "fas" 'fasd-find-file
+  "fs" 'save-buffer
+  "ff" 'find-file)
 
 ;; {{ Use `;` as leader key, for searching something
 (general-create-definer my-semicolon-leader-def
@@ -968,5 +1000,43 @@ If N > 0 and working on javascript, only occurrences in current N lines are rena
   "f" 'my-navigate-in-pdf
   "g" 'my-open-pdf-goto-page)
 ;; }}
+
+;; =========================================================================
+(set-face-attribute 'default nil :height 150)
+
+(defun alternate-buffer ()
+  (interactive)
+  (switch-to-buffer (other-buffer)))
+
+(defun xah-open-in-external-app (&optional file)
+  "Open the current file or dired marked files in external app.
+
+The app is chosen from your OS's preference."
+  (interactive)
+  (let ( doIt
+         (myFileList
+          (cond
+           ((string-equal major-mode "dired-mode") (dired-get-marked-files))
+           ((not file) (list (buffer-file-name)))
+           (file (list file)))))
+
+    (setq doIt (if (<= (length myFileList) 5)
+                   t
+                 (y-or-n-p "Open more than 5 files? ") ) )
+
+    (when doIt
+      (cond
+       ((string-equal system-type "windows-nt")
+        (mapc (lambda (fPath) (w32-shell-execute "open" (replace-regexp-in-string "/" "\\" fPath t t)) ) myFileList))
+       ((string-equal system-type "darwin")
+        (mapc (lambda (fPath) (shell-command (format "open \"%s\"" fPath)) )  myFileList) )
+       ((string-equal system-type "gnu/linux")
+        (mapc (lambda (fPath) (let ((process-connection-type nil)) (start-process "" nil "xdg-open" fPath))) myFileList) ) ) ) ) )
+
+(defun open-emacs-dotfile()
+  (interactive)
+  (find-file "~/.emacs.d/init.el"))
+
+;; =========================================================================
 
 (provide 'init-evil)
