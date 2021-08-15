@@ -1,4 +1,3 @@
-;; (require-package 'fasd)
 (require 'package)
 (setq package-enable-at-startup nil)
 (add-to-list 'package-archives
@@ -61,10 +60,6 @@ The app is chosen from your OS's preference."
 
 ;; //////////////////////      tada-packages //////////////////////
 
-;; (use-package fasd
-  ;; :ensure t
-  ;; :init (global-fasd-mode 1))
-
 (defun er-indent-buffer ()
   "Indent the currently visited buffer."
   (interactive)
@@ -84,7 +79,7 @@ The app is chosen from your OS's preference."
 (use-package evil-nerd-commenter
   :ensure t
   :config
-  (evilnc-default-hotkeys)
+  ;; (evilnc-default-hotkeys)
   ;; (define-key evil-normal-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
   ;; (define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
   )
@@ -108,15 +103,13 @@ The app is chosen from your OS's preference."
   :ensure t
   :init (doom-modeline-mode 1))
 
+
 (global-set-key (kbd "M-i") 'symbol-overlay-put)
 (global-set-key (kbd "M-n") 'symbol-overlay-switch-forward)
 (global-set-key (kbd "M-p") 'symbol-overlay-switch-backward)
 ;; (global-set-key (kbd "<f7>") 'symbol-overlay-mode)
 (global-set-key (kbd "<f8>") 'symbol-overlay-remove-all)
 
-;(define-key evil-normal-state-map (kbd "RET") 'find-file-in-project)
-;(define-key evil-normal-state-map (kbd "M-SPC pf") 'find-file-in-project)
-;(define-key evil-normal-state-map (kbd "M-SPC fed") 'open-emacs-dotfile)
 
 
 

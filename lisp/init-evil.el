@@ -801,9 +801,14 @@ If N > 0 and working on javascript, only occurrences in current N lines are rena
   "fj" 'dired-jump
   "fs" 'save-buffer
   "fo" 'xah-open-in-external-app
-  "fas" 'fasd-find-file
+  "fas" 'my-recent-directory
   "fs" 'save-buffer
   "ff" 'find-file)
+
+(define-key evil-insert-state-map (kbd "C-a") 'mwim-beginning)
+(define-key evil-normal-state-map (kbd "C-a") 'mwim-beginning)
+(define-key evil-insert-state-map (kbd "C-n") 'next-line)
+(define-key evil-insert-state-map (kbd "C-p") 'previous-line)
 
 ;; {{ Use `;` as leader key, for searching something
 (general-create-definer my-semicolon-leader-def
