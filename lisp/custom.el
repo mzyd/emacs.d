@@ -60,10 +60,27 @@ The app is chosen from your OS's preference."
 
 ;; //////////////////////      tada-packages //////////////////////
 
+;; (defun er-indent-buffer ()
+;;   "Indent the currently visited buffer."
+;;   (interactive)
+;;   (indent-region (point-min) (point-max)))
+
 (defun er-indent-buffer ()
   "Indent the currently visited buffer."
   (interactive)
   (indent-region (point-min) (point-max)))
+
+(defun er-indent-region-or-buffer ()
+  "Indent a region if selected, otherwise the whole buffer."
+  (interactive)
+  (save-excursion
+    (if (region-active-p)
+        (progn
+          (indent-region (region-beginning) (region-end))
+          (message "Indented selected region."))
+      (progn
+        (er-indent-buffer)
+        (message "Indented buffer.")))))
 
 (use-package nyan-mode
   :ensure t
@@ -86,10 +103,10 @@ The app is chosen from your OS's preference."
 
 (use-package mwim
   :ensure t)
-  ;; :bind (("C-a" . mwim-)
-        ;; ("C-e" . mwim-end)))
-;(global-set-key (kbd "C-a") 'mwim-beginning)
-;(global-set-key (kbd "C-e") 'mwim-end)
+;; :bind (("C-a" . mwim-)
+;; ("C-e" . mwim-end)))
+                                        ;(global-set-key (kbd "C-a") 'mwim-beginning)
+                                        ;(global-set-key (kbd "C-e") 'mwim-end)
 
 (use-package restart-emacs
   :ensure t)
@@ -111,10 +128,11 @@ The app is chosen from your OS's preference."
 (global-set-key (kbd "<f8>") 'symbol-overlay-remove-all)
 
 
+(setq web-mode-markup-indent-offset 2)
+(setq web-mode-css-indent-offset 2)
+(setq web-mode-code-indent-offset 2)
 
-
-
-
-
+(setq which-key-idle-delay 0.06)
+(setq which-key-idle-secondary-delay 0.05)
 
 (provide 'custom)

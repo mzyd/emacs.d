@@ -522,9 +522,9 @@ If N > 0 and working on javascript, only occurrences in current N lines are rena
   (interactive "P")
   (cond
    ((eq major-mode 'web-mode)
-     (unless (and n my-web-mode-element-rename-previous-tag)
-       (setq my-web-mode-element-rename-previous-tag (read-string "New tag name? ")))
-     (web-mode-element-rename my-web-mode-element-rename-previous-tag))
+    (unless (and n my-web-mode-element-rename-previous-tag)
+      (setq my-web-mode-element-rename-previous-tag (read-string "New tag name? ")))
+    (web-mode-element-rename my-web-mode-element-rename-previous-tag))
 
    ((derived-mode-p 'js2-mode)
     ;; use `js2-mode' parser, much smarter and works in any scope
@@ -773,7 +773,7 @@ If N > 0 and working on javascript, only occurrences in current N lines are rena
   "bk" 'kill-buffer
   "TAB" 'alternate-buffer
 
-  ;```````````````````````````` Windows
+                                        ;```````````````````````````` Windows
   "0" 'winum-select-window-0
   "1" 'winum-select-window-1
   "2" 'winum-select-window-2
@@ -791,7 +791,8 @@ If N > 0 and working on javascript, only occurrences in current N lines are rena
 
   ";" 'evilnc-comment-or-uncomment-lines
   "cp" 'evilnc-comment-or-uncomment-paragraphs
-  "=" 'er-indent-buffer
+  ;; "=" 'er-indent-buffer
+  "=" 'er-indent-region-or-buffer
 
   "SPC" 'counsel-M-x
 
