@@ -120,6 +120,7 @@
   (require-init 'init-keyfreq t)
   (require-init 'init-httpd t)
 
+  (require-init 'custom t)
   ;; projectile costs 7% startup time
 
   ;; don't play with color-theme in light weight mode

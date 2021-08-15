@@ -786,14 +786,21 @@ If N > 0 and working on javascript, only occurrences in current N lines are rena
 
   "sp" 'counsel-git-grep
 
+  "ms" 'youdao-dictionary-search-at-point+
+  "qr" 'restart-emacs
+
+  ";" 'evilnc-comment-or-uncomment-lines
+  "cp" 'evilnc-comment-or-uncomment-paragraphs
+  "=" 'er-indent-buffer
+
   "SPC" 'counsel-M-x
 
   "fed" 'open-emacs-dotfile
-  ;; "ff" 'helm-find-files
+  "fec" 'open-emacs-custom
+  "fee" 'open-emacs-evil
   "fj" 'dired-jump
   "fs" 'save-buffer
   "fo" 'xah-open-in-external-app
-  ; "pd" 'helm-projectile-find-dir
   "fas" 'fasd-find-file
   "fs" 'save-buffer
   "ff" 'find-file)
@@ -1033,10 +1040,5 @@ The app is chosen from your OS's preference."
        ((string-equal system-type "gnu/linux")
         (mapc (lambda (fPath) (let ((process-connection-type nil)) (start-process "" nil "xdg-open" fPath))) myFileList) ) ) ) ) )
 
-(defun open-emacs-dotfile()
-  (interactive)
-  (find-file "~/.emacs.d/init.el"))
-
-;; =========================================================================
 
 (provide 'init-evil)
