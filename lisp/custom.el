@@ -16,6 +16,7 @@
 (setq ring-bell-function 'ignore)
 
 (nyan-mode t)
+(keyfreq-mode 1)
 
 (defun alternate-buffer ()
   (interactive)
