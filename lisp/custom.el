@@ -12,10 +12,9 @@
 ;; /////////////////////////////////////////////////////////
 (global-hl-line-mode 1)
 (fringe-mode 0)
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 160)
 (setq ring-bell-function 'ignore)
 
-(nyan-mode t)
 (keyfreq-mode 1)
 
 (defun alternate-buffer ()

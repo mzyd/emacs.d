@@ -1,0 +1,26 @@
+<template>
+  <div class="$1">
+    $2
+  </div>
+</template>
+
+<script>
+
+ export.defaut {
+   data() {
+     return {
+       $3
+     }
+   },
+
+   mounted: {
+   }
+
+   methods: {
+   }
+ }
+
+</script>
+
+<style lang="scss" scope>
+</style>

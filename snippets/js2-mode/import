@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# contributor: Mzy
+# name: import
+# key: ii
+# --
+import $1 from '$2'
