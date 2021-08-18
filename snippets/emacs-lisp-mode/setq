@@ -1,6 +1,6 @@
 # -*- coding: utf-8; mode: snippet -*-
-# name: (message "hello")
-# key: ll
+# name: setq
+# key: setq
 # contributor: Chen Bin <chenbin DOT sh AT gmail>
 # --
-(message "${1:hello}")
+(setq $1 $2)

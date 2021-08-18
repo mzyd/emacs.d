@@ -553,7 +553,7 @@ If N > 0 and working on javascript, only occurrences in current N lines are rena
   "," 'evilnc-comment-operator
   "bf" 'beginning-of-defun
   "bu" 'backward-up-list
-  "bb" (lambda () (interactive) (switch-to-buffer nil)) ; to previous buffer
+  ;; "bb" (lambda () (interactive) (switch-to-buffer nil)) ; to previous buffer
   "ef" 'end-of-defun
   "m" 'evil-set-marker
   "em" 'shellcop-erase-buffer
@@ -772,7 +772,7 @@ If N > 0 and working on javascript, only occurrences in current N lines are rena
   "bp" 'previous-buffer
   "bn" 'next-buffer
   "bk" 'kill-buffer
-  "TAB" 'alternate-buffer
+  "TAB" (lambda () (interactive) (switch-to-buffer nil)) ; to previous buffer
 
                                         ;```````````````````````````` Windows
   "0" 'winum-select-window-0
@@ -1017,10 +1017,6 @@ If N > 0 and working on javascript, only occurrences in current N lines are rena
 
 ;; =========================================================================
 (set-face-attribute 'default nil :height 150)
-
-(defun alternate-buffer ()
-  (interactive)
-  (switch-to-buffer (other-buffer)))
 
 (defun xah-open-in-external-app (&optional file)
   "Open the current file or dired marked files in external app.
