@@ -17,9 +17,9 @@
 
 (keyfreq-mode 1)
 
-(defun alternate-buffer ()
-  (interactive)
-  (switch-to-buffer (other-buffer)))
+;; (defun alternate-buffer ()
+;;   (interactive)
+;;   (switch-to-buffer (other-buffer)))
 
 (defun xah-open-in-external-app (&optional file)
   "Open the current file or dired marked files in external app.
@@ -120,6 +120,12 @@ The app is chosen from your OS's preference."
   :ensure t
   :init (doom-modeline-mode 1))
 
+(use-package hungry-delete
+  :ensure t)
+
+(define-key evil-visual-state-map (kbd ",/") 'evilnc-comment-or-uncomment-lines)
+(define-key evil-insert-state-map (kbd "DEL") 'hungry-delete-backward)
+(define-key evil-insert-state-map (kbd "C-d") 'hungry-delete-forward)
 
 (global-set-key (kbd "M-i") 'symbol-overlay-put)
 (global-set-key (kbd "M-n") 'symbol-overlay-switch-forward)
