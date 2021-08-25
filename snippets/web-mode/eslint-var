@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: eslint-unused-vars
+# key: ee
+# --
+// eslint-disable-next-line  no-unused-vars

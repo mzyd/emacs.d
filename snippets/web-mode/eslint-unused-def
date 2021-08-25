@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: eslint-unused-def
+# key: eee
+# --
+// eslint-disable-next-line no-undef

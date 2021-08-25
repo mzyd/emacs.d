@@ -6,7 +6,7 @@
 
 <script>
 
- export.defaut {
+ export default {
    data() {
      return {
        $3
@@ -14,10 +14,10 @@
    },
 
    mounted: {
-   }
+   },
 
    methods: {
-   }
+   },
  }
 
 </script>
