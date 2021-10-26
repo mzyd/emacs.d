@@ -1,4 +1,4 @@
-;; -*- coding: utf-8; lexical-binding: t; -*-
+; -*- coding: utf-8; lexical-binding: t; -*-
 
 ;; My frequently used commands are listed here
 
@@ -811,6 +811,8 @@ If N > 0 and working on javascript, only occurrences in current N lines are rena
 (define-key evil-normal-state-map (kbd "C-a") 'mwim-beginning)
 (define-key evil-insert-state-map (kbd "C-n") 'next-line)
 (define-key evil-insert-state-map (kbd "C-p") 'previous-line)
+(define-key evil-insert-state-map (kbd "DEL") 'hungry-delete-backward)
+(define-key evil-insert-state-map (kbd "C-d") 'hungry-delete-forward)
 
 ;; {{ Use `;` as leader key, for searching something
 (general-create-definer my-semicolon-leader-def
